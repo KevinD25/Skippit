@@ -26,12 +26,40 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         zoom: 16
       });
 
+      var locations = [
+        [51.4667, 4.4667],
+        [51.2194475, 4.4024643]
+      ];
+      var i;
+      for(i = 0; i < locations.length; i++){
+        var marker = new google.maps.Marker({
+          position: {lat: locations[i][0], lng: locations[i][1]},
+          map: map
+        });
+      }
+      
       googleMaps.event.addListenerOnce(map, 'idle', () => {
         this.renderer.addClass(mapEl, 'visible');
       });
     }).catch(err => {
       console.log(err);
     });
+
+    
+
+    var location = ['Essen', 51.4667, 4.4667, 1];
+
+
+
+    // var locations = [
+    //   ['Bondi Beach', 51.4667, 4.4667, 4],
+    //   ['Coogee Beach', -33.923036, 151.259052, 5],
+    //   ['Cronulla Beach', -34.028249, 151.157507, 3],
+    //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+    //   ['Maroubra Beach', -33.950198, 151.259302, 1]
+    // ];
+
+    
   }
 
   onCancel(){
