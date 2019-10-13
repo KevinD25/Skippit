@@ -26,13 +26,13 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         zoom: 16
       });
 
-      var locations = [
+      const locations = [
         [51.4667, 4.4667],
         [51.2194475, 4.4024643]
       ];
-      var i;
-      for(i = 0; i < locations.length; i++){
-        var marker = new google.maps.Marker({
+      let i;
+      for (i = 0; i < locations.length; i++){
+        let marker = new google.maps.Marker({
           position: {lat: locations[i][0], lng: locations[i][1]},
           map: map
         });

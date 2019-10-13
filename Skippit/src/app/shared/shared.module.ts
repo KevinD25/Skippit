@@ -24,5 +24,5 @@ import { LocationMarkerComponent } from './maps/location-marker/location-marker.
     ]
 })
 
-export class SharedModule {  
+export class SharedModule {
 }
