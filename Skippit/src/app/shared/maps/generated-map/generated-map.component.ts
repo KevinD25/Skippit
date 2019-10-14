@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+declare var google; 
 
 @Component({
   selector: 'app-generated-map',
