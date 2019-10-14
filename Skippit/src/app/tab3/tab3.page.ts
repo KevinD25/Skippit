@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular'
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-tab3',
@@ -6,7 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  establishments:any = [];
 
-  constructor() {}
+  constructor(public navCtrl: NavController, public data:DataService) {
+    this.LoadData();
+  }
+
+  LoadData(){
+    this.establishments = this.data.establishments;
+  }
+
+  ItemClicked(establishment){
+    console.log(establishment);
+    this.navCtrl.navigateForward('/tabs/tab3/info/' + establishment.Id);
+  }
 
 }
