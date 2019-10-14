@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   establishments:any[] = [
-    {Id: 1, Name: "Moonbucks"},
+    {Id: 1, Name: "Moonbucks", lat: "51.217050", lng: "4.420691"},
     {Id: 2, Name: "Soubway"},
     {Id: 3, Name: "BurgerQueen"},
     {Id: 4, Name: "Babbel en Knabbel"},

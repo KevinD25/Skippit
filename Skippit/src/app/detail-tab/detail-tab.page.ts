@@ -17,6 +17,7 @@ export class DetailTabPage implements OnInit {
     this.establishment = data.getInfo(this.id);
     console.log(this.id);
     console.log(this.establishment);
+    console.log(this.establishment.lat); 
   }
 
   ngOnInit() {
