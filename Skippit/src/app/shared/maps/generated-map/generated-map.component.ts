@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-declare var google; 
+
+declare var google;
 
 @Component({
   selector: 'app-generated-map',
@@ -16,26 +17,37 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {}
 
-  ngAfterViewInit(){
-    const latt = parseFloat('51.4667');
-    const longi = parseFloat('4.4667');
+  ngAfterViewInit() {
 
     this.getGoogleMaps().then(googleMaps => {
       const mapEl = this.mapElementRef.nativeElement;
       const map = new google.maps.Map(mapEl, {
-        center: {lat: 51.4667, lng: 4.4667},
+        center: {lat: 51.2194475, lng: 4.4024643},
         zoom: 16
       });
 
       const locations = [
-        [51.4667, 4.4667],
-        [51.2194475, 4.4024643]
+        [51.2194475, 4.4024643, 'Antwerpen'],
+        [51.219836, 4.400929, 'Starbucks Groenplaats'],
+        [51.219752, 4.402452, 'Panos Groenplaats'],
+        [51.219980, 4.401159, 'McDonalds Groenplaats'],
+        [51.219153, 4.421533, 'Starbucks Raddisson Blu'],
+        [51.217959, 4.406311, 'Panos Meir'],
+        [51.218080, 4.407448, 'McDonalds Meir'],
+        [51.218735, 4.405227, 'Burger King Meir'],
+        [51.217276, 4.419755, 'McDonalds Keyserlei'],
+        [51.217681, 4.416271, 'Panos Keyserlei'],
+        [51.217820, 4.416799, 'Five Guys Keyserlei'],
+        [51.217615, 4.416874, 'Quick Keyserlei'],
+        [51.217053, 4.420740, 'Starbucks Antwerpen Centraal'],
+        [51.216822, 4.420664, 'Panos Antwerpen Centraal']
       ];
       let i;
-      for (i = 0; i < locations.length; i++){
+      for (i = 0; i < locations.length; i++) {
         let marker = new google.maps.Marker({
           position: {lat: locations[i][0], lng: locations[i][1]},
-          map: map
+          map: map,
+          title: locations[i][3]
         });
       }
       
@@ -45,22 +57,6 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
     }).catch(err => {
       console.log(err);
     });
-
-    
-
-    var location = ['Essen', 51.4667, 4.4667, 1];
-
-
-
-    // var locations = [
-    //   ['Bondi Beach', 51.4667, 4.4667, 4],
-    //   ['Coogee Beach', -33.923036, 151.259052, 5],
-    //   ['Cronulla Beach', -34.028249, 151.157507, 3],
-    //   ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-    //   ['Maroubra Beach', -33.950198, 151.259302, 1]
-    // ];
-
-    
   }
 
   onCancel(){
