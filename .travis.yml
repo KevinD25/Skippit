@@ -3,5 +3,4 @@ language: node_js
 cache: npm
 
 install:
-    - cd Skippit
     - npm install
