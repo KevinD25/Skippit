@@ -1,5 +1,7 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular'; 
+import { __await } from 'tslib';
 
 declare var google;
 
@@ -13,7 +15,7 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
 
   private key = 'AIzaSyD64jp4WQ6_StkjlXBDdH3RyEQWdFLCMuw';
 
-  constructor(private modalCtrl: ModalController, private renderer: Renderer2) { }
+  constructor(public alertController: AlertController, private modalCtrl: ModalController, private renderer: Renderer2) { }
 
   ngOnInit() {}
 
@@ -49,6 +51,20 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
           map: map,
           title: locations[i][3]
         });
+        try{
+          let location = locations[i]; 
+          marker.addListener('click', async event => {
+            const alert = await this.alertController.create({
+              header: 'Location', 
+              message: location[2].toString(), 
+              buttons: ['OK']
+            }); 
+            await alert.present(); 
+          });
+        }
+        catch (err) {
+          console.log(err); 
+        }
       }
       
       googleMaps.event.addListenerOnce(map, 'idle', () => {
