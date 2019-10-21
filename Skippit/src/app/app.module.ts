@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
+import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
 
 @NgModule({
   declarations:
@@ -21,7 +22,9 @@ import { DistanceService } from './services/distance.service';
     SharedModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule],
+    HttpClientModule,
+    EstablishmentMenuItemPickerModule
+  ],
   providers: [
     StatusBar,
     SplashScreen,

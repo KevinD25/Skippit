@@ -47,7 +47,11 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         let marker = new google.maps.Marker({
           position: {lat: locations[i][0], lng: locations[i][1]},
           map: map,
-          title: locations[i][3]
+          title: locations[i][2]
+        });
+        marker.addListener('click', () => {
+          console.log(marker.title);
+
         });
       }
       
@@ -84,5 +88,10 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         }
       };
     });
+  }
+
+  myMarkerHandler(text: string) {
+    alert(text);
+    console.log(text);
   }
 }
