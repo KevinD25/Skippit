@@ -13,7 +13,10 @@ namespace Skippit_DAL
     {
         public SkippitContext() { }
         public SkippitContext(DbContextOptions<SkippitContext> options) : base(options) { }
-
+        public virtual DbSet<User> User { get; set; }
+        public DbSet<Establishment> Establishment { get; set; }
+        public DbSet<Item> Item { get; set; }
+        public DbSet<Order> Order { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>();
