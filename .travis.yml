@@ -1,9 +1,10 @@
-sudo: false
-
 language: node_js
 
 node_js:
     - node
+    
+addons:
+    - chrome: stable
 
 install:
     - npm ci
