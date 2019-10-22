@@ -1,17 +1,13 @@
 language: node_js
 node_js:
   - 10
-  - 8
-
-cache:
-  directories:
-    - ./node_modules
-
-
-
+  
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
 
 install:
+  - npm installinstall:
+  - npm install -g gulp bower cordova ionic
   - npm install
+  - bower update
