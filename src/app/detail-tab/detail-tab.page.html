@@ -1,0 +1,12 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{establishment.Name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p>{{establishment.adress}}</p>
+  <p>Open tot {{establishment.ClosingTime}}</p>
+  <p>Vroegste besteluur: {{establishment.OrderHour}}</p>
+  <div class="map" #map></div>
+</ion-content>

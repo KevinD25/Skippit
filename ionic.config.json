@@ -1,5 +1,7 @@
 {
   "name": "Skippit",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
