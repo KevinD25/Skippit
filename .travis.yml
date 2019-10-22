@@ -1,13 +1,24 @@
 language: node_js
 node_js:
   - 10
-  
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+      - openjdk-7-jdk
+      - lib32stdc++6
+      - lib32z1
+env:
+  - CXX=g++-4.8
+
 before_install:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
 
 install:
-  - npm installinstall:
   - npm install -g gulp bower cordova ionic
   - npm install
   - bower update
