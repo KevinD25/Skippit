@@ -4,7 +4,8 @@ import { EstablishmentMenuItemPickerComponent } from './establishment-menu-item-
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule) },
-  { path: 'test', component: EstablishmentMenuItemPickerComponent}
+  { path: 'test', component: EstablishmentMenuItemPickerComponent},
+  { path: 'detail-tab', loadChildren: './detail-tab/detail-tab.module#DetailTabPageModule' }
 ];
 @NgModule({
   imports: [
@@ -13,3 +14,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
+
