@@ -4,12 +4,14 @@ import { IonicModule } from '@ionic/angular';
 
 import { GeneratedMapComponent } from './maps/generated-map/generated-map.component';
 import { LocationMarkerComponent } from './maps/location-marker/location-marker.component';
+import { DistanceComponent } from './maps/distance/distance.component';
 
 
 @NgModule({
     declarations: [
     GeneratedMapComponent,
-    LocationMarkerComponent
+    LocationMarkerComponent,
+    DistanceComponent
     ],
     imports: [
         CommonModule,
@@ -17,7 +19,8 @@ import { LocationMarkerComponent } from './maps/location-marker/location-marker.
     ],
     exports: [
         GeneratedMapComponent,
-        LocationMarkerComponent
+        LocationMarkerComponent,
+        DistanceComponent
     ],
     entryComponents: [
         GeneratedMapComponent
