@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 @NgModule({
   declarations:
@@ -26,6 +27,7 @@ import { DistanceService } from './services/distance.service';
     StatusBar,
     SplashScreen,
     DistanceService,
+    Facebook,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
