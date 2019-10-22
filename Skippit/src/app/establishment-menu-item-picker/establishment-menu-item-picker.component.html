@@ -15,8 +15,13 @@
               <div>
                 <p>{{item.Amount}}</p>
               </div>
-              <ion-button shape="round" color="success" (click)="AmountUp(item)">plus</ion-button>
-              <ion-button shape="round" color="danger" (click)="AmountDown(item)">min</ion-button>
+              <ion-item>
+                <button width="5px" ion-button item-end (click)="AmountUp(item)">+</button>
+              </ion-item>
+              <ion-item>
+                <button ion-button item-end (click)="AmountDown(item)">-</button>
+              </ion-item>
+              
           </div>
         </li>
       </ul>
@@ -24,12 +29,12 @@
   
     <div class="bottom">
       <div class="clock">
-        <p>15:23</p>
-        <ion-button shape="round" color="light">plus</ion-button>
-        <ion-button shape="round" color="light">min</ion-button>
+        <p>{{choosenTime}}</p>
+        <ion-button shape="round" color="light" (click)="SetTimeLater()">plus</ion-button>
+        <ion-button shape="round" color="light" (click)="SetTimeEarlier()">min</ion-button>
       </div>
-      <div>
-        <p>{{totalPrice}}</p>
+      <div class="footer">
+        <p>{{totalPrice | number: '1.2-2'}}</p>
         <ion-button color="success">Betaal</ion-button>
       </div>
     </div>
