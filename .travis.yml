@@ -9,3 +9,4 @@ before_script:
   — npm install -g ionic cordova
 script:
   — ionic cordova build browser — prod
+  
