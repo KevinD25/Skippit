@@ -6,17 +6,17 @@
 
 <ion-content [scrollEvents]="true">
   <div class="main">
-    <h1>{{establishment.Name}}</h1>
+    <h1>{{menuSvc.establishment.name}}</h1>
   
     <div class="lijst">
       <ul>
-        <li *ngFor="let item of establishment.Menu">
+        <li *ngFor="let item of menuSvc.establishment.menu">
           <div>
-              <h5>{{item.Name}}</h5>
-              <p>{{item.Price}}</p>
+              <h5>{{item.name}}</h5>
+              <p>{{item.price}}</p>
     
               <div>
-                <p>{{item.Amount}}</p>
+                <p>{{item.amount}}</p>
               </div>
               <ion-item>
                 <button width="5px" ion-button item-end (click)="AmountUp(item)">+</button>
@@ -37,7 +37,7 @@
         <ion-button shape="round" color="light" (click)="SetTimeEarlier()">min</ion-button>
       </div>
       <div class="footer">
-        <p>{{totalPrice | number: '1.2-2'}}</p>
+        <p>{{menuSvc.totalPriceForOrder | number: '1.2-2'}}</p>
         <ion-button color="success">Betaal</ion-button>
       </div>
     </div>

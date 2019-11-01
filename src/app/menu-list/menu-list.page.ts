@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService, IItem } from '../services/menu.service';
 
 @Component({
   selector: 'app-menu-list',
@@ -11,29 +12,16 @@ export class MenuListPage implements OnInit {
   choosenTime: string;
   currentHour: number;
   currentMinutes: number;
-  establishment = {} as IEstablishment;
+  // establishment = {} as IEstablishment;
   menuItems = [] as IItem[];
   names: string[] = [
     'Café misto', 'Iced Coffee met melk', 'Pike Place Roast', 'Caramel Frappuccino', 'Espresso Frappuccino'
   ];
   prices: number[] = [5.00, 4.08, 6.00, 4.95, 5.05];
-  constructor() {
-    this.totalPrice =  0;
+  constructor(protected menuSvc: MenuService) {
     this.timeCheck();
-    let i = 0;
-    for (i = 0; i < 5; i++){
-      const menuItem = {
-        Name: this.names[i],
-        Price: this.prices[i],
-        Description: '',
-        Size: 'Venti',
-        Amount: 0
-      } as IItem;
-      this.menuItems[i] = menuItem;
-    }
-    this.establishment.Name =  'Starbucks Antwerpen Centraal';
-    this.establishment.Menu = this.menuItems;
-    console.log(this.establishment.Menu);
+    menuSvc.getEstablishmentData();
+    console.log(menuSvc.establishment.menu);
    }
 
   ngOnInit() {}
@@ -46,24 +34,29 @@ export class MenuListPage implements OnInit {
   }
 
   AmountUp(item: IItem){
-    item.Amount += 1;
+    this.menuSvc.establishment.menu.forEach(element => {
+      if (element.id === item.id) {
+        element.amount += 1;
+      }
+    });
     this.CheckTotal();
   }
 
   AmountDown(item: IItem){
-    if (item.Amount > 0) {
-      item.Amount -= 1;
-    }
+    this.menuSvc.establishment.menu.forEach(element => {
+      if (element.id === item.id) {
+        element.amount -= 1;
+      }
+    });
     this.CheckTotal();
   }
 
   CheckTotal(){
-    let i = 0;
-    this.totalPrice = 0;
-    this.establishment.Menu.forEach(element => {
-      this.totalPrice += element.Amount * element.Price;
+    this.menuSvc.totalPriceForOrder = 0;
+    this.menuSvc.establishment.menu.forEach(element => {
+      this.menuSvc.totalPriceForOrder += element.amount * element.price;
     });
-    console.log(this.totalPrice);
+    console.log(this.menuSvc.totalPriceForOrder);
   }
 
   WhatTimeIsItInMinutes(){
@@ -146,21 +139,4 @@ export class MenuListPage implements OnInit {
       }
     }
   }
-}
-
-interface IEstablishment {
-  Name: string;
-  Adress: string;
-  // Location: 
-  Menu: IItem[];
-  Description: string;
-  Type: string;
-}
-
-interface IItem {
-  Name: string;
-  Description: string;
-  Price: number;
-  Size: string;
-  Amount: number;
 }
