@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
 import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
+import { MenuListPageModule } from './menu-list/menu-list.module';
 
 @NgModule({
   declarations:
@@ -23,7 +24,8 @@ import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-pic
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    EstablishmentMenuItemPickerModule
+    EstablishmentMenuItemPickerModule,
+    MenuListPageModule
   ],
   providers: [
     StatusBar,

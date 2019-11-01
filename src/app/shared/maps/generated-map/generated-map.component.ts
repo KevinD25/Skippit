@@ -1,5 +1,8 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { EstablishmentMenuItemPickerComponent } from 'src/app/establishment-menu-item-picker/establishment-menu-item-picker.component';
+import { NavController } from '@ionic/angular';
+import { MenuListPage } from 'src/app/menu-list/menu-list.page';
 
 declare var google;
 
@@ -13,7 +16,7 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
 
   private key = 'AIzaSyD64jp4WQ6_StkjlXBDdH3RyEQWdFLCMuw';
 
-  constructor(private modalCtrl: ModalController, private renderer: Renderer2) { }
+  constructor(private modalCtrl: ModalController, private renderer: Renderer2, private navCtrl: NavController) { }
 
   ngOnInit() {}
 
@@ -51,7 +54,7 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         });
         marker.addListener('click', () => {
           console.log(marker.title);
-
+          this.navCtrl.navigateForward('/test');
         });
       }
       
