@@ -13,6 +13,7 @@ import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
 import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
 import { MenuListPageModule } from './menu-list/menu-list.module';
+import { PayPal } from '@ionic-native/paypal/ngx';
 
 @NgModule({
   declarations:
@@ -30,6 +31,7 @@ import { MenuListPageModule } from './menu-list/menu-list.module';
   providers: [
     StatusBar,
     SplashScreen,
+    PayPal,
     DistanceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

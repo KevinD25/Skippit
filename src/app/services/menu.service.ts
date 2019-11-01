@@ -61,6 +61,13 @@ export class MenuService {
   getItems() {
     return this.items;
   }
+
+  setOrder(itemList: IItem[]){
+    this.order = {
+      id: 1,
+      items: itemList
+    };
+  }
 }
 
 export interface IEstablishment {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService, IItem } from '../services/menu.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-menu-list',
@@ -18,7 +19,7 @@ export class MenuListPage implements OnInit {
     'Café misto', 'Iced Coffee met melk', 'Pike Place Roast', 'Caramel Frappuccino', 'Espresso Frappuccino'
   ];
   prices: number[] = [5.00, 4.08, 6.00, 4.95, 5.05];
-  constructor(protected menuSvc: MenuService) {
+  constructor(protected menuSvc: MenuService, private navCtrl: NavController) {
     this.timeCheck();
     menuSvc.getEstablishmentData();
     console.log(menuSvc.establishment.menu);
@@ -124,19 +125,26 @@ export class MenuListPage implements OnInit {
   }
 
   checkIfBorderCrossed(minutes: number, hours: number) {
-    console.log('help');
     this.timeCheck();
     if (hours > this.currentHour) {
-      console.log('whut1');
       return false;
     } else if (hours === this.currentHour) {
       if (minutes >= this.currentMinutes) {
-        console.log('whut1');
         return false;
       } else {
-        console.log('whut2');
         return true;
       }
     }
+  }
+
+  PaymentButtonPressed() {
+    this.menuSvc.establishment.menu.forEach(element => {
+      if (element.amount > 0) {
+        this.menuItems.push(element);
+      }
+    });
+    console.log(this.menuItems);
+    this.menuSvc.setOrder(this.menuItems);
+    this.navCtrl.navigateForward('check-order');
   }
 }

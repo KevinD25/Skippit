@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>itemspicked</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+      <div class="contained">
+          <ul>
+            <li *ngFor="let item of menuSvc.order.items">
+              <div>
+                <h5>{{item.name}}</h5>
+                <p>{{item.price}}</p>
+        
+                <div>
+                  <p>{{item.amount}}</p>
+                </div>      
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="contained">
+        <p>Hallo</p>
+      </div>
+  </div>
+    
+
+</ion-content>
