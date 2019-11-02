@@ -62,10 +62,11 @@ export class MenuService {
     return this.items;
   }
 
-  setOrder(itemList: IItem[]){
+  setOrder(itemList: IItem[], time: string){
     this.order = {
       id: 1,
-      items: itemList
+      items: itemList,
+      pickupTime: time
     };
   }
 }
@@ -92,5 +93,6 @@ export interface IItem {
 export interface IOrder {
   id: number;
   items: IItem[];
+  pickupTime: string;
 }
 

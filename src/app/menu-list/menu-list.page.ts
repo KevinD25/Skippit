@@ -144,7 +144,7 @@ export class MenuListPage implements OnInit {
       }
     });
     console.log(this.menuItems);
-    this.menuSvc.setOrder(this.menuItems);
+    this.menuSvc.setOrder(this.menuItems, this.choosenTime);
     this.navCtrl.navigateForward('check-order');
   }
 }
