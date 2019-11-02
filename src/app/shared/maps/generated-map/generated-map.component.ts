@@ -54,7 +54,7 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         });
         marker.addListener('click', () => {
           console.log(marker.title);
-          this.navCtrl.navigateForward('/test');
+          this.navCtrl.navigateForward('test');
         });
       }
       

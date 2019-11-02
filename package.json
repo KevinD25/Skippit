@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@ionic-native/apple-pay": "^5.16.0",
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/geolocation": "^5.15.0",
     "@ionic-native/paypal": "^5.16.0",
@@ -28,6 +29,7 @@
     "@ionic/angular": "^4.7.1",
     "@types/google-maps": "^3.2.1",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
+    "cordova-plugin-applepay": "^5.0.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -64,7 +66,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-geolocation": {},
-      "com.paypal.cordova.mobilesdk": {}
+      "com.paypal.cordova.mobilesdk": {},
+      "cordova-plugin-applepay": {}
     }
   }
 }
