@@ -17,6 +17,7 @@ import { PayPal } from '@ionic-native/paypal/ngx';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 
 @NgModule({
   declarations:
@@ -38,6 +39,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     PayPal,
     ApplePay,
     DistanceService,
+    Base64ToGallery,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
