@@ -54,10 +54,10 @@ export class GeneratedMapComponent implements OnInit, AfterViewInit {
         });
         marker.addListener('click', () => {
           console.log(marker.title);
-          this.navCtrl.navigateForward('test');
+          this.navCtrl.navigateForward('menu-list');
+          this.modalCtrl.dismiss();
         });
       }
-      
       googleMaps.event.addListenerOnce(map, 'idle', () => {
         this.renderer.addClass(mapEl, 'visible');
       });

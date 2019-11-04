@@ -3,6 +3,7 @@ import { MenuService, IItem } from '../services/menu.service';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal/ngx';
 import { element } from 'protractor';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-itemspicked',
@@ -16,7 +17,7 @@ export class ItemspickedPage implements OnInit {
   currency: string = 'EUR';
   currencyIcon: string = '€';
 
-  constructor(protected menuSvc: MenuService, private payPal: PayPal, private applePay: ApplePay) {
+  constructor(protected menuSvc: MenuService, private payPal: PayPal, private applePay: ApplePay, private navCtrl: NavController) {
     console.log(menuSvc.order);
     this.totalPrice = 0;
     this.CalculateTotal();
@@ -70,6 +71,10 @@ export class ItemspickedPage implements OnInit {
   }
 
   payWithApplePay(){
+
+  }
+
+  temporaryNotAbleToPay() {
 
   }
 

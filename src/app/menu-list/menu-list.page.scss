@@ -1,38 +1,54 @@
+.main{
+    margin-bottom: 25%;
+}
+
 .lijst{
     width: 100%;
 }
 ul{
     list-style: none;
     width: 100%;
+    padding: 0;
 }
 
 li{
+    margin-left: 5%;
     display: table;
-    width: 100%;
+    width: 90%;
 }
 
-li h5{
+.row{
+    left: 5%;
+    margin-bottom: 10px;
+    padding: 1px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.driedelig{
     float: left;
+    padding-left: 5%;
 }
 
-li p {
-    margin-left: 5px;
-    float: left;
+.links{
+    width: 65%;
 }
 
-li div {
-    margin-left: 5px;
-    float: left;
+.midden{
+    align-content: center;
+    width: 10%;
 }
 
-li div p {
-    float: left;
+.rechts{
+    width: 25%;
+    padding-right: 5%;
 }
 
-li button{
-    position: absolute;
-    right: 0;
-    width: 5px;
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .bottom{
@@ -41,13 +57,11 @@ li button{
     margin-right: auto;
     margin-left: auto;
     width: 100%;
+    background-color: white;
 }
 
 .clock {
-    position: fixed;
-    bottom: 15%;
-    margin-right: auto;
-    margin-left: auto;
+    float: left;
     align-content: center;
     width: 100%;
 }

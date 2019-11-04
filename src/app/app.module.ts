@@ -16,6 +16,8 @@ import { MenuListPageModule } from './menu-list/menu-list.module';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
 
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 @NgModule({
   declarations:
   [AppComponent],
@@ -27,7 +29,8 @@ import { ApplePay } from '@ionic-native/apple-pay/ngx';
     AppRoutingModule,
     HttpClientModule,
     EstablishmentMenuItemPickerModule,
-    MenuListPageModule
+    MenuListPageModule,
+    NgxQRCodeModule
   ],
   providers: [
     StatusBar,

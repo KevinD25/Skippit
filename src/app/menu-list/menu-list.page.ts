@@ -19,13 +19,23 @@ export class MenuListPage implements OnInit {
     'Café misto', 'Iced Coffee met melk', 'Pike Place Roast', 'Caramel Frappuccino', 'Espresso Frappuccino'
   ];
   prices: number[] = [5.00, 4.08, 6.00, 4.95, 5.05];
+
+  private hasOrderSomething: boolean;
   constructor(protected menuSvc: MenuService, private navCtrl: NavController) {
     this.timeCheck();
     menuSvc.getEstablishmentData();
     console.log(menuSvc.establishment.menu);
+    this.hasOrderSomething = false;
    }
 
   ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.hasOrderSomething = false;
+    this.menuSvc.establishment.menu.forEach(element =>{
+      element.amount = 0;
+    });
+}
 
   timeCheck() {
     const time = new Date().toLocaleTimeString();
@@ -137,14 +147,27 @@ export class MenuListPage implements OnInit {
     }
   }
 
+  ResetValues() {
+    this.menuSvc.establishment.menu.forEach(element => {
+      element.amount = 0;
+    });
+    this.menuItems = [];
+    this.hasOrderSomething = false;
+    this.menuSvc.totalPriceForOrder = 0;
+  }
+
   PaymentButtonPressed() {
     this.menuSvc.establishment.menu.forEach(element => {
       if (element.amount > 0) {
         this.menuItems.push(element);
+        this.hasOrderSomething = true;
       }
     });
-    console.log(this.menuItems);
-    this.menuSvc.setOrder(this.menuItems, this.choosenTime);
-    this.navCtrl.navigateForward('check-order');
+    if (this.hasOrderSomething){
+      console.log(this.menuItems);
+      this.menuSvc.setOrder(this.menuItems, this.choosenTime);
+      this.ResetValues();
+      this.navCtrl.navigateForward('check-order');
+    }
   }
 }
