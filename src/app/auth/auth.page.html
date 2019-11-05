@@ -50,6 +50,13 @@
           [disabled]="!f.valid">
           {{isLogin ? 'Login' : 'Signup'}}
         </ion-button>
+        <ion-button
+        type="button"
+        color="primary"
+        expand="block"
+        (click)="googleLogin()">
+          Google login
+        </ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>
