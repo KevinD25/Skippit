@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular'
-import { DataService } from '../data.service';
+import { DataService, Favorite } from '../data.service';
 
 @Component({
   selector: 'app-tab2',
@@ -11,19 +11,26 @@ export class Tab2Page {
 
   establishments:any = [];
   favorites:any = []; 
+  favorite : Favorite = {PlaceId : 0}; 
+  id : number = 0; 
+
 
   constructor(public navCtrl: NavController, public data:DataService) {
     this.LoadData();
-    this.data.favorites.subscribe(x => {
-      this.favorites = x; 
-      this.SetHearts(); 
-    });
+    this.GetFavorites(); 
   }
 
   LoadData(){
     this.establishments = this.data.establishments;
-    this.data.GetFavorites();
   }
+
+  GetFavorites(){
+    this.data.GetFavorites().subscribe(x => {
+      this.favorites = x; 
+      this.SetHearts(); 
+    });
+  }
+  
   SetHearts(){
     this.establishments.forEach(establishment => {
       this.favorites.forEach(favorite => {
@@ -37,12 +44,25 @@ export class Tab2Page {
   Favorite(establishment){
     if(establishment.Heart == "heart-empty"){
       establishment.Heart = "heart"; 
-      this.data.AddFavorite(establishment.Id); 
+      this.data.AddFavorite(establishment.Id).subscribe(x => this.GetFavorites()); 
     }
     else{
       establishment.Heart = "heart-empty"; 
-      this.data.RemoveFavorite(establishment.Id); 
-    } 
+      var x = 0;
+      var promise = new Promise((resolve, reject) => {
+        this.favorites.forEach(element => {
+          if(element.placeId == establishment.Id){
+            x = element.id; 
+          }
+        })
+        resolve(); 
+      });
+      promise.then(() => {        
+      this.data.RemoveFavorite(x).subscribe(x => {
+        console.log(x); 
+        this.GetFavorites()}); 
+        }); 
+    }     
   }
 
   ItemClicked(establishment){

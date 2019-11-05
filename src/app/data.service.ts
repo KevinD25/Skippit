@@ -27,17 +27,19 @@ export class DataService {
     return this.establishments.find(establishment => establishment.Id == id);
   }
   GetFavorites(){
-    this.http.get(this.Url).subscribe(x => {
-      this.favorites.next(x); 
-    })
+    return this.http.get(this.Url);
   }
   AddFavorite(Id : number){
     this.favorite.PlaceId = Id; 
-    this.http.post(this.Url, this.favorite).subscribe(x => this.favorites.next(x));  
+    return this.http.post(this.Url, this.favorite);  
     console.log(this.favorite);
     console.log(this.favorites); 
   }
+  RemoveFavorite(Id : number){
+    return this.http.delete(this.Url + "/" + Id); 
+  }
 }
 export interface Favorite{
+  //Id: number, 
   PlaceId: number
 }
