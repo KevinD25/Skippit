@@ -1,0 +1,8 @@
+div.contained {
+    height: 50vh;
+    /* DEMO STUFF BELOW */
+    background: orange;
+  }
+  div.contained:first-child {
+    background: grey;
+  }

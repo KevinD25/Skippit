@@ -16,6 +16,14 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { SharedModule } from './shared/shared.module';
+import { DistanceService } from './services/distance.service';
+import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
+import { MenuListPageModule } from './menu-list/menu-list.module';
+import { PayPal } from '@ionic-native/paypal/ngx';
+import { ApplePay } from '@ionic-native/apple-pay/ngx';
+
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @NgModule({
   declarations:
@@ -30,12 +38,17 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    EstablishmentMenuItemPickerModule,
+    MenuListPageModule,
+    NgxQRCodeModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GooglePlus,
-
+    PayPal,
+    ApplePay,
+    DistanceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

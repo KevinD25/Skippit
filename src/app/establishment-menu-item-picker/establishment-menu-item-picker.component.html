@@ -1,0 +1,42 @@
+
+
+<ion-content
+  [scrollEvents]="true">
+  <div class="main">
+    <h1>{{establishment.Name}}</h1>
+  
+    <div class="lijst">
+      <ul>
+        <li *ngFor="let item of establishment.Menu">
+          <div>
+              <h5>{{item.Name}}</h5>
+              <p>{{item.Price}}</p>
+    
+              <div>
+                <p>{{item.Amount}}</p>
+              </div>
+              <ion-item>
+                <button width="5px" ion-button item-end (click)="AmountUp(item)">+</button>
+              </ion-item>
+              <ion-item>
+                <button ion-button item-end (click)="AmountDown(item)">-</button>
+              </ion-item>
+              
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+    <div class="bottom">
+      <div class="clock">
+        <p>{{choosenTime}}</p>
+        <ion-button shape="round" color="light" (click)="SetTimeLater()">plus</ion-button>
+        <ion-button shape="round" color="light" (click)="SetTimeEarlier()">min</ion-button>
+      </div>
+      <div class="footer">
+        <p>{{totalPrice | number: '1.2-2'}}</p>
+        <ion-button color="success">Betaal</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
