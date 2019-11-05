@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular'
-import { DataService, Favorite } from '../data.service';
+import { DataService, Favorite } from '../services/data.service';
 
 @Component({
   selector: 'app-tab2',
