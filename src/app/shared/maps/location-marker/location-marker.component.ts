@@ -9,7 +9,9 @@ import { GeneratedMapComponent } from '../generated-map/generated-map.component'
 })
 export class LocationMarkerComponent implements OnInit {
 
-  constructor(private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController) {
+    this.mapClicker();
+   }
 
   ngOnInit() {}
 

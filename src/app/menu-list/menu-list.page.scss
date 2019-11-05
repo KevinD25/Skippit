@@ -1,0 +1,83 @@
+.main{
+    margin-bottom: 25%;
+}
+
+.lijst{
+    width: 100%;
+}
+ul{
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+li{
+    margin-left: 5%;
+    display: table;
+    width: 90%;
+}
+
+.row{
+    left: 5%;
+    margin-bottom: 10px;
+    padding: 1px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+
+.driedelig{
+    float: left;
+    padding-left: 5%;
+}
+
+.links{
+    width: 65%;
+}
+
+.midden{
+    align-content: center;
+    width: 10%;
+}
+
+.rechts{
+    width: 25%;
+    padding-right: 5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.bottom{
+    position: fixed;
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    background-color: white;
+}
+
+.clock {
+    float: left;
+    align-content: center;
+    width: 100%;
+}
+
+.clock p{
+    float: left;
+    margin-right: 5%;
+}
+
+.clock button{
+    float: right;
+    right: 0;
+    
+    margin-right: 5%;
+}
+
+.footer p {
+    float: left;
+}
