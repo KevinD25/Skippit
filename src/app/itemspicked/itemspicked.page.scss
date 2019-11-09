@@ -1,27 +1,8 @@
-.contained {
+div.contained {
     height: 50vh;
-}
-
-.lijstItem {
-  left: 5%;
-  margin-bottom: 10px;
-  padding: 1px;
-}
-
-ul{
-  list-style: none;
-  width: 100%;
-  padding: 0;
-}
-
-li{
-  margin-left: 5%;
-  display: table;
-  width: 90%;
-  border-radius: 25px;
-  border: 2px solid black;
-}
-
-.amount{
-  float: right;
-}
+    /* DEMO STUFF BELOW */
+    background: orange;
+  }
+  div.contained:first-child {
+    background: grey;
+  }

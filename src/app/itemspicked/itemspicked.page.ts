@@ -71,11 +71,11 @@ export class ItemspickedPage implements OnInit {
   }
 
   payWithApplePay(){
-    console.log('Function not implemented');
+
   }
 
   temporaryNotAbleToPay() {
-    this.navCtrl.navigateForward('order-details');
+
   }
 
   private CalculateTotal() {
