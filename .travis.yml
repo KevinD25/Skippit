@@ -9,9 +9,6 @@ addons:
 language: node_js
 node_js:
   - stable
-branches:
-  only:
-  — master
 before_install:
   - npm i npm@^4 -g
 install:
