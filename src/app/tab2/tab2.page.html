@@ -6,4 +6,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div class="ion-padding">
+    <h1 >Establishments</h1>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let establishment of establishments" >
+      <h2 style="width: 100%"><div class="flexdiv" ><div (click)="ItemClicked(establishment)">{{establishment.Name}}</div><div><ion-icon name={{establishment.Heart}} (click)="Favorite(establishment)"></ion-icon></div></div></h2>
+    </ion-item>
+  </ion-list>
+</ion-content>
