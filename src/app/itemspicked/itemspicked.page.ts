@@ -75,7 +75,7 @@ export class ItemspickedPage implements OnInit {
   }
 
   temporaryNotAbleToPay() {
-
+    this.navCtrl.navigateForward('test');
   }
 
   private CalculateTotal() {

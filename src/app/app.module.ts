@@ -20,6 +20,9 @@ import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
 import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
 import { MenuListPageModule } from './menu-list/menu-list.module';
+import { AuthPageModule } from './auth/auth.module';
+import { OrderDetailsPageModule } from './order-details/order-details.module';
+
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
 
@@ -41,7 +44,10 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     EstablishmentMenuItemPickerModule,
     MenuListPageModule,
-    NgxQRCodeModule
+    AuthPageModule,
+    OrderDetailsPageModule,
+    NgxQRCodeModule,
+    SharedModule
   ],
   providers: [
     StatusBar,
