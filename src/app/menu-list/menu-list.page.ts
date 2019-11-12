@@ -56,7 +56,9 @@ export class MenuListPage implements OnInit {
   AmountDown(item: IItem){
     this.menuSvc.establishment.menu.forEach(element => {
       if (element.id === item.id) {
-        element.amount -= 1;
+        if (element.amount > 0) {
+          element.amount -= 1;
+        }
       }
     });
     this.CheckTotal();

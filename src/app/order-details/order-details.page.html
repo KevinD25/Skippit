@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>order-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="top">
+    <div class="qrcode">
+        <ngx-qrcode 
+          [qrc-element-type]="elementType" 
+          [qrc-value] = "qrData"
+          qrc-class = "aclass"
+          qrc-errorCorrectionLevel = "L">
+        </ngx-qrcode>
+    </div>
+  </div>
+
+  <div class="knoppen">
+    <ion-button expand="full" color="tertiary" (click)="downloadQR()">
+        <ion-icon name="download" slot="start"></ion-icon>
+        Download QR code
+    </ion-button>
+    
+  </div>
+
+</ion-content>
