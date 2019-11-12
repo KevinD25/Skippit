@@ -27,13 +27,23 @@
     "@ionic-native/paypal": "^5.16.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
+    "@ionic-native/stripe": "^5.16.0",
     "@ionic/angular": "^4.7.1",
     "@types/google-maps": "^3.2.1",
     "com.paypal.cordova.mobilesdk": "^3.5.0",
+    "cordova-android": "8.1.0",
     "cordova-base64-to-gallery": "^4.1.3",
+    "cordova-browser": "6.0.0",
+    "cordova-ios": "5.0.1",
     "cordova-plugin-applepay": "^5.0.0",
+    "cordova-plugin-facebook4": "^6.2.0",
+    "cordova-plugin-googleplus": "^8.2.0",
+    "cordova-plugin-stripe": "^1.5.3",
     "core-js": "^2.5.4",
+    "firebase": "^7.2.3",
+    "ionic-cordova-oauth": "0.0.9",
     "ngx-qrcode2": "0.0.9",
+    "promise-polyfill": "^8.1.3",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -71,7 +81,15 @@
       "cordova-plugin-geolocation": {},
       "com.paypal.cordova.mobilesdk": {},
       "cordova-plugin-applepay": {},
-      "cordova-base64-to-gallery": {}
-    }
+      "cordova-base64-to-gallery": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.877596530147-sn634eap78eqabt6iuvoig3qmrq84uq2",
+        "WEB_APPLICATION_CLIENT_ID": "877596530147-sn634eap78eqabt6iuvoig3qmrq84uq2.apps.googleusercontent.com"
+      },
+      "cordova-plugin-stripe": {}
+    },
+    "platforms": [
+      "browser"
+    ]
   }
 }

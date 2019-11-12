@@ -15,6 +15,7 @@ import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-pic
 import { MenuListPageModule } from './menu-list/menu-list.module';
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
+import { Stripe } from '@ionic-native/stripe/ngx';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 
@@ -37,6 +38,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     SplashScreen,
     PayPal,
     ApplePay,
+    Stripe,
     DistanceService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

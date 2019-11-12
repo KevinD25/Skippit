@@ -156,7 +156,7 @@ export class MenuListPage implements OnInit {
     this.menuSvc.totalPriceForOrder = 0;
   }
 
-  PaymentButtonPressed() {
+  CheckShoppingBasket() {
     this.menuSvc.establishment.menu.forEach(element => {
       if (element.amount > 0) {
         this.menuItems.push(element);

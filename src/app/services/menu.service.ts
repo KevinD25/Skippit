@@ -69,6 +69,10 @@ export class MenuService {
       pickupTime: time
     };
   }
+
+  getOrder(){
+    return this.order;
+  }
 }
 
 export interface IEstablishment {
