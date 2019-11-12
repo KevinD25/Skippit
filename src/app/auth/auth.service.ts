@@ -87,4 +87,20 @@ export class AuthService {
       )
     );
   }
+
+  public setUserDataGoogle(userData: firebase.auth.UserCredential){
+    userData.user.getIdTokenResult().then((data) => {
+      const expirationTime = new Date( new Date().getTime() + data.expirationTime);
+      userData.user.getIdToken().then((data) => {
+        this._user.next(
+          new User(
+            userData.user.uid,
+            userData.user.email,
+            data,
+            expirationTime
+          )
+        );
+      });
+    });
+  }
 }
