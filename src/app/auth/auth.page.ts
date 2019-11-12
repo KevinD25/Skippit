@@ -109,7 +109,10 @@ export class AuthPage implements OnInit {
         'scopes': 'profile email'
       })
   
-      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken))
+      return await this.afAuth.auth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(gplusUser.idToken)).then((data) => {
+        this.authService.setUserDataGoogle(data);
+        return data;
+      })
   
     } catch(err) {
       console.log(err)
@@ -120,10 +123,10 @@ export class AuthPage implements OnInit {
     try {
       const provider = new firebase.auth.GoogleAuthProvider();
       const credential = await this.afAuth.auth.signInWithPopup(provider);
-      //console.log(credential.credential.toJSON());
-      //this.authService.loginGoogle("eyJhbGciOiJSUzI1NiIsImtpZCI6IjljZWY1MzQwNjQyYjE1N2ZhOGE0ZjBkODc0ZmU3OTAwMzYyZDgyZGIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiODc3NTk2NTMwMTQ3LWowajZzdTUyNnIyc3QzMTJqdmJldnZjYnFhYmF0NmNrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiODc3NTk2NTMwMTQ3LWowajZzdTUyNnIyc3QzMTJqdmJldnZjYnFhYmF0NmNrLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTEwNzE2ODA5MzI2ODA4MTEzMTc0IiwiZW1haWwiOiJ1YmVyZ2hvc3QxMTYxQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoicENFd0syZ3FIVHFZc2hDODhOVko2QSIsImlhdCI6MTU3Mjk2NzYxNSwiZXhwIjoxNTcyOTcxMjE1fQ.B7Q0_ZL9cJ9IFu7TegIC8FCcq0U76GoNuoZowYeq-9P_6IjE-005ZPppnPUf93s5_w9YFN7Ca3EJCi9VQ93OnaUqo0OlTWxBjzfBjTOx7lUq5CDDTZWbCRtYsQ1L4z7-Aq7XZqUqV1LNixj-t01XcH2HgmB5aO0iOttU3jTR5J4Wvl82mdPWFepYX6MEtIE7sbJP_bVif_YPDmiMRYhB9QGB7gtzo2Y77aR3V37d4PiB2OA6a2OarRD6rvo2CYmVaIVsEooB8aufSo7WhmN-f-oPbclZm0CGS8Ng0LO333TnlgOLMuJtwqgIg0K4k2I1eQCE6VgbQU6oWZAiA_g-QA");
       
       console.log(credential);
+
+      this.authService.setUserDataGoogle(credential);
   
     } catch(err) {
       console.log(err)
