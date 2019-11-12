@@ -20,10 +20,14 @@ import { SharedModule } from './shared/shared.module';
 import { DistanceService } from './services/distance.service';
 import { EstablishmentMenuItemPickerModule } from './establishment-menu-item-picker/establishment-menu-item-picker.module';
 import { MenuListPageModule } from './menu-list/menu-list.module';
+import { AuthPageModule } from './auth/auth.module';
+import { OrderDetailsPageModule } from './order-details/order-details.module';
+
 import { PayPal } from '@ionic-native/paypal/ngx';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
 
 import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 
 @NgModule({
   declarations:
@@ -40,7 +44,10 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     EstablishmentMenuItemPickerModule,
     MenuListPageModule,
-    NgxQRCodeModule
+    AuthPageModule,
+    OrderDetailsPageModule,
+    NgxQRCodeModule,
+    SharedModule
   ],
   providers: [
     StatusBar,
@@ -49,6 +56,7 @@ import { NgxQRCodeModule } from 'ngx-qrcode2';
     PayPal,
     ApplePay,
     DistanceService,
+    Base64ToGallery,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
