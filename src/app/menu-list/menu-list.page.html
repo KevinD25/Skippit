@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>menu-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <div class="main">
+    <h1>{{menuSvc.establishment.name}}</h1>
+  
+    <div class="lijst">
+      <ul>
+        <li *ngFor="let item of menuSvc.establishment.menu">
+          <div class="row">
+            <div class="driedelig links">
+                <h5>{{item.name}}</h5>
+                <p>{{item.price}}</p>
+            </div>
+            <div class="driedelig midden">
+              <p>{{item.amount}}</p>
+            </div>
+            <div class="driedelig rechts">
+              <ion-button item-end shape="round" color="success" (click)="AmountUp(item)">+</ion-button>
+              <ion-button item-end shape="round" color="danger" (click)="AmountDown(item)">-</ion-button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="clock">
+      <p>{{choosenTime}}</p>
+      <ion-button shape="round" color="light" (click)="SetTimeLater()">plus</ion-button>
+      <ion-button shape="round" color="light" (click)="SetTimeEarlier()">min</ion-button>
+    </div>
+    <div class="footer">
+      <p>{{menuSvc.totalPriceForOrder | number: '1.2-2'}}</p>
+      <ion-button color="success" (click)="PaymentButtonPressed()">Betaal</ion-button>
+    </div>
+  </div>
+</ion-content>
