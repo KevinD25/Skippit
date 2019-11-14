@@ -4,6 +4,8 @@ import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal
 import { element } from 'protractor';
 import { ApplePay } from '@ionic-native/apple-pay/ngx';
 import { NavController } from '@ionic/angular';
+import { Stripe } from '@ionic-native/stripe/ngx';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-itemspicked',
@@ -16,8 +18,10 @@ export class ItemspickedPage implements OnInit {
   paymentAmount: string = '3.33';
   currency: string = 'EUR';
   currencyIcon: string = '€';
+  stripe_key = 'pk_test_i06kldVjd2NLqz99Lpbg1r8800KaZC8V7H';
+  cardDetails: any = {};
 
-  constructor(protected menuSvc: MenuService, private payPal: PayPal, private applePay: ApplePay, private navCtrl: NavController) {
+  constructor(protected menuSvc: MenuService, private payPal: PayPal, private stripe: Stripe, private navCtrl: NavController, private http: HttpClient) {
     console.log(menuSvc.order);
     this.totalPrice = 0;
     this.CalculateTotal();
@@ -70,9 +74,35 @@ export class ItemspickedPage implements OnInit {
     });
   }
 
-  payWithApplePay(){
+  payWithStripe() {
+    this.stripe.setPublishableKey(this.stripe_key);
 
+    this.cardDetails = {
+      number: '4242424242424242',
+      expMonth: 12,
+      expYear: 2020,
+      cvc: '220'
+    }
+
+    this.stripe.createCardToken(this.cardDetails)
+      .then(token => {
+        console.log(token);
+        this.makePayment(token.id);
+      })
+      .catch(error => console.error(error));
   }
+
+  makePayment(token) {
+    this.http
+    .post('API LINK HIER', {
+    amount: this.totalPrice,
+    currency: "eur",
+    token: token.id
+    })
+    .subscribe(data => {
+    console.log(data);
+    });
+    }
 
   temporaryNotAbleToPay() {
     this.navCtrl.navigateForward('test');
